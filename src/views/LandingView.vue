@@ -1,7 +1,7 @@
 <script setup>
   import { ref, watch } from 'vue'
-import Join from '../components/Join.vue';
-
+  import Join from '../components/join.vue'
+  import Blog from '../components/Blog.vue'
 
   const cursor = ref(null);
   const props = defineProps(['cursorOn'])
@@ -30,7 +30,7 @@ import Join from '../components/Join.vue';
 </script> 
 
 <template>
-  <div class="land" id="home" @mousemove="updatePosition">
+  <section class="land" id="home" @mousemove="updatePosition">
     <h1 class="not-selectable">
       welcome to 
       <span class="blog">the blog</span>!
@@ -42,8 +42,9 @@ import Join from '../components/Join.vue';
       <button><i class='bx bx-chevrons-down'></i></button>
     </a>
     <div ref="cursor" class="cursor"></div>
-  </div>
+  </section>
   <Join @mouse-enter="hideCursor" @mouse-leave="showCursor"/>
+  <Blog />
   
 </template>
 
@@ -54,7 +55,6 @@ import Join from '../components/Join.vue';
     display: flex;
     align-items: center;
     position: relative;
-    border-bottom: 2px solid black;
   }
 
   .land button {

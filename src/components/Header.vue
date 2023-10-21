@@ -1,6 +1,6 @@
 <script setup>
-  import CoolButton from './CoolButton.vue'
-  import Logo from './Logo.vue'
+  import CoolButton from './coolbutton.vue'
+  import Logo from './logo.vue'
 
   defineEmits(['turn-off-cursor', 'turn-on-cursor'])
 </script>
@@ -13,16 +13,13 @@
       </a>
       <ul>
         <li><a href="#home">home</a></li>
-        <li><a href="#home">join</a></li>
-        <li><a href="#home">blog</a></li>
+        <li><a href="#join">join</a></li>
+        <li><a href="#blog">blog</a></li>
         <li><a href="#home">about</a></li>
       </ul>
     </nav>
-    <a href="#join">
-      <CoolButton text="join"/>
-    </a>
-    <a href="#join">
-      <CoolButton text="join"/>
+    <a href="#login">
+      <CoolButton text="login"/>
     </a>
   </header>
 </template>

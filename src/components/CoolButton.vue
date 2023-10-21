@@ -11,7 +11,7 @@
     padding: 0.8rem 3rem;
     border: 4px solid black;
     box-shadow: 4px 4px 0 black;
-    cursor: pointer;
+    cursor: pointer; 
     background-color: var(--secondary-color);
     transition: all 0.1s ease-in-out;
     font-size: 2rem;
