@@ -1,9 +1,9 @@
 <script setup>
   import { ref, watch } from 'vue'
-  import Join from '../components/join.vue'
+  import Join from '../components/Join.vue'
   import Blog from '../components/Blog.vue'
 
-  const cursor = ref(null);
+  const cursor = ref(null)
   const props = defineProps(['cursorOn'])
   
   const updatePosition = (e) => {

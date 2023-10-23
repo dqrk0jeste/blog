@@ -1,5 +1,6 @@
 <script setup>
-  import { ref ,onMounted } from 'vue'
+  import { ref, onMounted, watch } from 'vue'
+
   const content = ref(null)
 
   onMounted(() => {
