@@ -1,9 +1,13 @@
 <script setup>
-  import { ref } from 'vue'
+  import { ref, onMounted } from 'vue'
   import { RouterLink } from 'vue-router'
+  import { useStore } from '@/stores/store.js'
 
   const blogPosts = ref(null)
   const error = ref(null)
+  const blog = ref(null)
+
+  const store = useStore()
 
   const getBlogPosts = async () => {
     error.value = null
@@ -21,10 +25,14 @@
   }
 
   getBlogPosts()
+
+  onMounted(() => {
+    store.blog = blog.value
+  })
 </script>
 
 <template>
-  <section id="blog">
+  <section ref="blog" id="blog">
     <h1>recent blog posts</h1>
     <div v-if="error" class="error">
       <h2>there has been an error while fetching data</h2>

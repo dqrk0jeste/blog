@@ -1,22 +1,34 @@
 <script setup>
+  import { useRoute, useRouter } from 'vue-router' 
+
   import CoolButton from './coolbutton.vue'
   import Logo from './Logo.vue'
   import  { useStore } from '@/stores/store.js'
 
   const store = useStore()
+  const route = useRoute()
+  const router = useRouter()
 
   defineEmits(['turn-off-cursor', 'turn-on-cursor'])
+
+  const goTo = (el) => {
+    if(route.path === '/') {
+      el.scrollIntoView()
+    } else {
+      router.push('/')
+    }
+  }
 </script>
 
 <template>
   <header :style="{ backgroundColor: store.headerBackgroundColor, color: store.headerColor }" @mouseenter="$emit('turn-off-cursor')" @mouseleave="$emit('turn-on-cursor')">
     <nav>
-      <Logo :color="store.headerColor"/>
+      <Logo @click="goTo(store.home)" :color="store.headerColor"/>
       <ul>
-        <li>home</li>
-        <li>join</li>
-        <li>blog</li>
-        <li>about</li>
+        <li @click="goTo(store.home)">home</li>
+        <li @click="goTo(store.join)">join</li>
+        <li @click="goTo(store.blog)">blog</li>
+        <li @click="goTo(store.about)">about</li>
       </ul>
     </nav>
     <a href="#login">

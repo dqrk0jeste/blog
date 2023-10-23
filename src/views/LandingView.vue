@@ -1,10 +1,14 @@
 <script setup>
-  import { ref, watch } from 'vue'
+  import { ref, watch, onMounted } from 'vue'
   import Join from '../components/Join.vue'
   import Blog from '../components/Blog.vue'
+  import { useStore } from '@/stores/store.js'
 
   const cursor = ref(null)
+  const home = ref(null)
   const props = defineProps(['cursorOn'])
+
+  const store = useStore()
   
   const updatePosition = (e) => {
     cursor.value.style.left = `${e.clientX}px`
@@ -27,10 +31,14 @@
       showCursor()
     }
   })
+
+  onMounted(() => {
+    store.home = home.value
+  })
 </script> 
 
 <template>
-  <section class="land" id="home" @mousemove="updatePosition">
+  <section ref="home" class="land" id="home" @mousemove="updatePosition">
     <h1 class="not-selectable">
       welcome to 
       <span class="blog">the blog</span>!

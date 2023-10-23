@@ -33,6 +33,7 @@
     })
     observer.observe(content.value)
     document.addEventListener('scroll', handleScroll)
+    store.join = thisSection.value
   })
   
   defineEmits(['mouse-enter', 'mouse-leave'])

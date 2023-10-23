@@ -5,7 +5,11 @@ export const useStore = defineStore({
   state: () => {
     return {
       headerColor: 'black',
-      headerBackgroundColor: 'var(--main-color)'
+      headerBackgroundColor: 'var(--main-color)',
+      home: null,
+      join: null,
+      blog: null,
+      about: null
     }
   }
 })
