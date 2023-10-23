@@ -1,15 +1,20 @@
+<script setup>
+  const props = defineProps(['color'])
+</script>
+
 <template>
-  <span>blog.</span>
+  <span ref="span" :style="{ '-webkit-text-stroke': `1px ${props.color}`}">blog.</span>
 </template>
 
 <style scoped>
   span {
     font-size: 3rem;
     font-weight: 700;
-    -webkit-text-stroke: 1px black;
-    color: transparent;
     transition: color 0.5s ease-in;
-  } 
+    cursor: pointer;
+    color: transparent;
+  }
+
   span:hover {
     color: black;
   }

@@ -8,5 +8,5 @@
 
 <template>
   <Header @turn-off-cursor="cursorOn=false" @turn-on-cursor="cursorOn=true" />
-  <RouterView :cursorOn="cursorOn"  />
+  <RouterView :cursorOn="cursorOn" />
 </template>

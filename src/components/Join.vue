@@ -1,7 +1,23 @@
 <script setup>
   import { ref, onMounted, watch } from 'vue'
 
+  import  { useStore } from '@/stores/store.js'
+
+  const store = useStore()
   const content = ref(null)
+  const thisSection = ref(null)
+
+  const handleScroll = (e) => {
+    const topFromTop = thisSection.value.getBoundingClientRect().top + document.body.scrollTop
+    const bottomFromTop = thisSection.value.getBoundingClientRect().top + thisSection.value.offsetHeight + document.body.scrollTop
+    if(topFromTop < 75 && bottomFromTop  > 0) {
+      store.headerColor = 'var(--main-color)'
+      store.headerBackgroundColor = 'black'
+    } else {
+      store.headerColor = 'black'
+      store.headerBackgroundColor = 'var(--main-color)'
+    }
+  }
 
   onMounted(() => {
     const observer = new IntersectionObserver(entries => {
@@ -16,13 +32,14 @@
       threshold: 0.5
     })
     observer.observe(content.value)
+    document.addEventListener('scroll', handleScroll)
   })
   
   defineEmits(['mouse-enter', 'mouse-leave'])
 </script>
 
 <template>
-  <section class="join" id="join" @mouseenter="$emit('mouse-enter')" @mouseleave="$emit('mouse-leave')">
+  <section ref="thisSection" class="join" id="join" @mouseenter="$emit('mouse-enter')" @mouseleave="$emit('mouse-leave')">
     <div ref="content" class="content">
       <h2>would you like to create an account?</h2>
       <RouterLink to="/register"><button><strong>register</strong></button></RouterLink>

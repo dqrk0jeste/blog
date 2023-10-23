@@ -1,21 +1,22 @@
 <script setup>
   import CoolButton from './coolbutton.vue'
-  import Logo from './logo.vue'
+  import Logo from './Logo.vue'
+  import  { useStore } from '@/stores/store.js'
+
+  const store = useStore()
 
   defineEmits(['turn-off-cursor', 'turn-on-cursor'])
 </script>
 
 <template>
-  <header @mouseenter="$emit('turn-off-cursor')" @mouseleave="$emit('turn-on-cursor')">
+  <header :style="{ backgroundColor: store.headerBackgroundColor, color: store.headerColor }" @mouseenter="$emit('turn-off-cursor')" @mouseleave="$emit('turn-on-cursor')">
     <nav>
-      <a href="#home">
-        <Logo />
-      </a>
+      <Logo :color="store.headerColor"/>
       <ul>
-        <li><a href="#home">home</a></li>
-        <li><a href="#join">join</a></li>
-        <li><a href="#blog">blog</a></li>
-        <li><a href="#home">about</a></li>
+        <li>home</li>
+        <li>join</li>
+        <li>blog</li>
+        <li>about</li>
       </ul>
     </nav>
     <a href="#login">
@@ -37,7 +38,7 @@
     padding: 1rem 3rem;
     font-size: 2rem;
     z-index: 100;
-    background-color: var(--main-color);
+    transition: all 0.3s ease;
   }
 
   nav {
@@ -54,8 +55,7 @@
     gap: 2rem;
   }
 
-  a {
-    text-decoration: none;
-    color: black;
+  li {
+    cursor: pointer;
   }
 </style>
