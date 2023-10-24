@@ -1,5 +1,7 @@
 <script setup>
   import { ref, watch, onMounted } from 'vue'
+  import { useRoute } from 'vue-router'
+
   import Join from '../components/Join.vue'
   import Blog from '../components/Blog.vue'
   import { useStore } from '@/stores/store.js'
@@ -9,6 +11,7 @@
   const props = defineProps(['cursorOn'])
 
   const store = useStore()
+  const route = useRoute()
   
   const updatePosition = (e) => {
     cursor.value.style.left = `${e.clientX}px`
@@ -46,7 +49,7 @@
       <span class="you">you</span>
       made it here!
     </h1>
-    <a class="go-down" href="#join" @mouseenter="hideCursor" @mouseleave="showCursor">
+    <a class="go-down" @click="store.goTo(store.join, route)" @mouseenter="hideCursor" @mouseleave="showCursor">
       <button><i class='bx bx-chevrons-down'></i></button>
     </a>
     <div ref="cursor" class="cursor"></div>

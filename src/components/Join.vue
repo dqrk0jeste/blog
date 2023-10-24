@@ -29,7 +29,7 @@
         }
       })
     }, {
-      threshold: 0.5
+      threshold: 0.3
     })
     observer.observe(content.value)
     document.addEventListener('scroll', handleScroll)

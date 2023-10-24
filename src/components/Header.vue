@@ -7,28 +7,19 @@
 
   const store = useStore()
   const route = useRoute()
-  const router = useRouter()
 
   defineEmits(['turn-off-cursor', 'turn-on-cursor'])
-
-  const goTo = (el) => {
-    if(route.path === '/') {
-      el.scrollIntoView()
-    } else {
-      router.push('/')
-    }
-  }
 </script>
 
 <template>
   <header :style="{ backgroundColor: store.headerBackgroundColor, color: store.headerColor }" @mouseenter="$emit('turn-off-cursor')" @mouseleave="$emit('turn-on-cursor')">
     <nav>
-      <Logo @click="goTo(store.home)" :color="store.headerColor"/>
+      <Logo @click="store.goTo(store.home, route)" :color="store.headerColor"/>
       <ul>
-        <li @click="goTo(store.home)">home</li>
-        <li @click="goTo(store.join)">join</li>
-        <li @click="goTo(store.blog)">blog</li>
-        <li @click="goTo(store.about)">about</li>
+        <li @click="store.goTo(store.home, route)">home</li>
+        <li @click="store.goTo(store.join, route)">join</li>
+        <li @click="store.goTo(store.blog, route)">blog</li>
+        <li @click="store.goTo(store.about, route)">about</li>
       </ul>
     </nav>
     <a href="#login">
