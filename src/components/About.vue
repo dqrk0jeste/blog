@@ -1,9 +1,16 @@
 <script setup>
+  import { useStore } from '@/stores/store.js'
+  import { ref, onMounted } from 'vue'
+  const store = useStore()
+  const about = ref(null)
 
+  onMounted(() => {
+    store.about = about.value
+  })
 </script>
 
 <template>
-  <footer>
+  <footer ref="about">
     <div class="first-part">
       <p style="font-size: 1.8rem"><strong>blog.</strong> by darko nikolic</p>
       <div>

@@ -3,6 +3,8 @@
 
   import  { useStore } from '@/stores/store.js'
 
+  //TODO await fetch('')
+
   const store = useStore()
   const content = ref(null)
   const thisSection = ref(null)

@@ -21,8 +21,6 @@ html {
 }
 
 body {
-  min-width: 100vw;
-  min-height: 100vh;
   background-color: var(--main-color);
   overflow-x: hidden;
 }

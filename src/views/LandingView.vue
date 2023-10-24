@@ -12,6 +12,10 @@
 
   const store = useStore()
   const route = useRoute()
+
+  const goTo = (el) => {
+    el.scrollIntoView()
+  }
   
   const updatePosition = (e) => {
     cursor.value.style.left = `${e.clientX}px`
@@ -49,7 +53,7 @@
       <span class="you">you</span>
       made it here!
     </h1>
-    <a class="go-down" @click="store.goTo(store.join, route)" @mouseenter="hideCursor" @mouseleave="showCursor">
+    <a class="go-down" @click="goTo(store.join)" @mouseenter="hideCursor" @mouseleave="showCursor">
       <button><i class='bx bx-chevrons-down'></i></button>
     </a>
     <div ref="cursor" class="cursor"></div>
