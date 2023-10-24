@@ -1,7 +1,7 @@
 <script setup>
   import { useRoute, useRouter } from 'vue-router' 
 
-  import CoolButton from './coolbutton.vue'
+  import CoolButton from './CoolButton.vue'
   import Logo from './Logo.vue'
   import  { useStore } from '@/stores/store.js'
 
