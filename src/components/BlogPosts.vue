@@ -13,7 +13,7 @@
   const getBlogPosts = async (from, count) => {
     error.value = null
       try {
-        const blogPostsRes = await fetch(`http://localhost:3500/posts/range?from=${from}&count=${count}`, {
+        const blogPostsRes = await fetch(`https://blog-api-efag.onrender.com/posts/range?from=${from}&count=${count}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
