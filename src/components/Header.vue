@@ -10,7 +10,7 @@
   const router = useRouter()
 
   const goTo = (el) => {
-      if(route.path === '/') {
+      if(el === store.about || route.path === '/') {
         el.scrollIntoView()
       } else {
         router.push('/')
@@ -26,8 +26,8 @@
       <Logo @click="goTo(store.home, route)" :color="store.headerColor"/>
       <ul>
         <li @click="goTo(store.home)">home</li>
-        <li @click="goTo(store.join)">join</li>
-        <li @click="goTo(store.blog)">blog</li>
+        <li v-if="route.path === '/'" @click="goTo(store.join)">join</li>
+        <li v-if="route.path === '/'" @click="goTo(store.blog)">blog</li>
         <li @click="goTo(store.about)">about</li>
       </ul>
     </nav>

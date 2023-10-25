@@ -1,5 +1,5 @@
 <script setup>
-  import { ref, onMounted, watch } from 'vue'
+  import { ref, onMounted, onBeforeUnmount} from 'vue'
 
   import  { useStore } from '@/stores/store.js'
 
@@ -36,6 +36,10 @@
     observer.observe(content.value)
     document.addEventListener('scroll', handleScroll)
     store.join = thisSection.value
+  })
+
+  onBeforeUnmount(() => {
+    document.removeEventListener('scroll', handleScroll)
   })
   
   defineEmits(['mouse-enter', 'mouse-leave'])

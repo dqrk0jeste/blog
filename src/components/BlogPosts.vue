@@ -33,12 +33,12 @@
     <h2>there has been an error while fetching data</h2>
     <p @click="getBlogPosts">try again?</p>
   </div>
-  <div class="posts-grid" v-else-if="blogPosts" >
+  <div class="posts" v-else-if="blogPosts" >
     <div class="post" v-for="post in blogPosts" :key="post['_id']">
       <h3>{{ post.title }}</h3>
-      <h4>by {{ post.user }}</h4>
-      <p>{{ post.text }}</p>
-      <RouterLink to="/post"><button><strong>view full post</strong></button></RouterLink>
+      <h4>by @{{ post.user }}</h4>
+      <p>{{ post.desc }}</p>
+      <RouterLink :to="`/post/${post['_id']}`"><button><strong>view full post</strong></button></RouterLink>
     </div>
   </div>
   <h2 v-else>Loading...</h2>
@@ -70,11 +70,9 @@
     text-align: center;
   }
 
-  .posts-grid {
-    margin-top: 5rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3rem;
+  .posts {
+    max-width: 100rem;
+    margin: 5rem auto 0 auto;
   }
 
   .post {
@@ -86,20 +84,19 @@
     position: relative;
     height: fit-content;
     padding-bottom: 8rem;
+    margin-bottom: 3rem;
   }
 
   .post > h3 {
-    padding-left: 1rem;
     font-size: 2.75rem;
   }
   .post > h4 {
-    padding-right: 1rem;
     font-size: 1.5rem;
     text-align: end;
   }
 
   .post > p {
-    padding-left: 1rem;
+    margin-top: 1.5rem;
     font-size: 2rem;
   }
 
