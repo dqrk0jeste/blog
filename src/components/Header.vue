@@ -31,9 +31,7 @@
         <li @click="goTo(store.about)">about</li>
       </ul>
     </nav>
-    <a href="#login">
-      <CoolButton text="login"/>
-    </a>
+    <CoolButton text="login"/>
   </header>
 </template>
 

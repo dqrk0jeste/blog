@@ -13,7 +13,9 @@ export const useStore = defineStore({
       home: null,
       join: null,
       blog: null,
-      about: null
+      about: null,
+      wannaRegister: false,
+      wannaLogin: false
     }
   }
 })
