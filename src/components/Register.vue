@@ -8,7 +8,7 @@
   const password = ref('')
 
   const message = ref('create an account')
-
+  
   const registerUser = async (e) => {
     try {
       const response = await fetch('https://blog-api-efag.onrender.com/users/register', {
@@ -25,7 +25,9 @@
         const loginResponse = await fetch('https://blog-api-efag.onrender.com/users/login', {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            credentials: 'include',
+            withCredentials: true
           },
           body: JSON.stringify({
             username: username.value,
