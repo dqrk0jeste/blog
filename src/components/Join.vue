@@ -49,7 +49,12 @@
 <template>
   <section ref="thisSection" class="join" id="join" @mouseenter="$emit('mouse-enter')" @mouseleave="$emit('mouse-leave')">
     <div ref="content" class="content">
-      <Register v-if="store.wannaRegister"/>
+      <div v-if="store.loggedIn" class="welcome">
+        <h1>welcome, {{ store.user }}!</h1>
+        <h2>have something to write about?</h2>
+        <RouterLink to="/posts/create"><button>create</button></RouterLink>
+      </div>
+      <Register v-else-if="store.wannaRegister"/>
       <Login v-else-if="store.wannaLogin"/>
       <div v-else class="base">
         <h2>would you like to create an account?</h2>
@@ -80,6 +85,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .welcome {
+    text-align: center;
+  }
+
+  .welcome h1 {
+    font-size: 6rem;
+  }
+  
+  .welcome h2 {
+    font-size: 4rem;
+  }
+  .welcome button {
+    margin-top: 5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 1rem 5rem;
+    background-color: var(--secondary-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .welcome button:hover {
+    background-color: white;
   }
 
   .base {

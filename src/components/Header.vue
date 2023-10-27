@@ -18,6 +18,15 @@
     }
 
   defineEmits(['turn-off-cursor', 'turn-on-cursor'])
+
+  const handleClick = () => {
+    if(!store.loggedIn) {
+      store.join.scrollIntoView()
+      store.wannaLogin = true
+    } else {
+      router.push('/posts/create')
+    }
+  }
 </script>
 
 <template>
@@ -31,7 +40,7 @@
         <li @click="goTo(store.about)">about</li>
       </ul>
     </nav>
-    <CoolButton text="login"/>
+    <CoolButton @click="handleClick" :text="store.loggedIn ? 'create' : 'login'"/>
   </header>
 </template>
 

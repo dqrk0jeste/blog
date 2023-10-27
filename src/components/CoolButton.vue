@@ -1,9 +1,9 @@
 <script setup>
-  const { text } = defineProps(['text'])
+  const props = defineProps(['text'])
 </script>
 
 <template>
-  <button><strong>{{ text }}</strong></button>
+  <button><strong>{{ props.text }}</strong></button>
 </template>
 
 <style scoped>

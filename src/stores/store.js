@@ -7,7 +7,8 @@ export const useStore = defineStore({
   id: 'store',
   state: () => {
     return {
-      currentUser: null,
+      token: null,
+      user: null,
       headerColor: 'black',
       headerBackgroundColor: 'var(--main-color)',
       home: null,
@@ -16,6 +17,14 @@ export const useStore = defineStore({
       about: null,
       wannaRegister: false,
       wannaLogin: false
+    }
+  },
+  getters: {
+    loggedIn: (state) => {
+      if(state.token) {
+        return true 
+      }
+      return false
     }
   }
 })
