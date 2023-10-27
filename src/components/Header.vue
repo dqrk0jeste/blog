@@ -40,7 +40,7 @@
         <li @click="goTo(store.about)">about</li>
       </ul>
     </nav>
-    <CoolButton @click="handleClick" :text="store.loggedIn ? 'create' : 'login'"/>
+    <CoolButton v-if="route.path !== '/posts/create'" @click="handleClick" :text="store.loggedIn ? 'create' : 'login'"/>
   </header>
 </template>
 

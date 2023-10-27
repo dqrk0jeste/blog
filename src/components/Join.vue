@@ -50,7 +50,7 @@
   <section ref="thisSection" class="join" id="join" @mouseenter="$emit('mouse-enter')" @mouseleave="$emit('mouse-leave')">
     <div ref="content" class="content">
       <div v-if="store.loggedIn" class="welcome">
-        <h1>welcome, {{ store.user }}!</h1>
+        <h1>welcome, <span>{{ store.user }}</span>!</h1>
         <h2>have something to write about?</h2>
         <RouterLink to="/posts/create"><button>create</button></RouterLink>
       </div>
@@ -93,6 +93,10 @@
 
   .welcome h1 {
     font-size: 6rem;
+  }
+  .welcome span {
+    -webkit-text-stroke: 1px var(--main-color);
+    color: transparent;
   }
   
   .welcome h2 {
