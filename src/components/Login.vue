@@ -25,7 +25,7 @@
       if(rawResponse.status === 200) {
         const response = await rawResponse.json()
         store.token = response.token
-        document.cookie = `token=${store.token};max-age=${12 * 60 * 60};domain=${location.hostname};path=/`
+        document.cookie = `token=${store.token};max-age=${12 * 60 * 60};domain=${location.hostname};path=/blog`
         message.value = 'success!'
       } else if(rawResponse.status === 401) {
         message.value = 'wrong username or password'

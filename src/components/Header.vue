@@ -29,7 +29,7 @@
   }
 
   const logout = () => {
-    store.deleteCookie('token', '/', location.hostname)
+    store.deleteCookie('token', '/blog', location.hostname)
     store.token = null
     store.user = null
     store.wannaLogin = false
