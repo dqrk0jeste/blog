@@ -28,9 +28,8 @@
   })
 
   onMounted(() => {
-    if(document.cookie !== '') {
-      const token = document.cookie.split('; ').find(row => row.startsWith('token='))?.split('=')[1]
-      store.token = token
+    if(store.getCookie('token')) {
+      store.token = store.getCookie('token')
     }
   })
 

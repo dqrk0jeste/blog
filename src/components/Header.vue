@@ -27,6 +27,14 @@
       router.push('/posts/create')
     }
   }
+
+  const logout = () => {
+    store.deleteCookie('token', '/blog', location.hostname)
+    store.token = null
+    store.user = null
+    store.wannaLogin = false
+    store.wannaRegister = false
+  }
 </script>
 
 <template>
@@ -40,7 +48,10 @@
         <li @click="goTo(store.about)">about</li>
       </ul>
     </nav>
-    <CoolButton v-if="route.path !== '/posts/create'" @click="handleClick" :text="store.loggedIn ? 'create' : 'login'"/>
+    <div class="buttons">
+      <u v-if="store.loggedIn" @click="logout">logout?</u>
+      <CoolButton v-if="route.path !== '/posts/create'" @click="handleClick" :text="store.loggedIn ? 'create' : 'login'"/>
+    </div>
   </header>
 </template>
 
@@ -75,6 +86,11 @@
   }
 
   li {
+    cursor: pointer;
+  }
+
+  .buttons u {
+    margin-right: 1rem;
     cursor: pointer;
   }
 </style>
