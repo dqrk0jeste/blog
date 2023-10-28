@@ -29,9 +29,7 @@
   }
 
   const logout = () => {
-    console.log('host: ' + location.host)
-    console.log('hostname: ' + location.hostname)
-    store.deleteCookie('token', '/blog', location.hostname)
+    store.deleteCookie('token', '/blog', location.host)
     store.token = null
     store.user = null
     store.wannaLogin = false

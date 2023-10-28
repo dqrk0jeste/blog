@@ -34,9 +34,9 @@ export const useStore = defineStore({
     deleteCookie(name, path, domain) {
       if(this.getCookie(name)) {
         document.cookie = name + '=' +
-          ((path) ? ';Path=' + path : '') +
-          ((domain) ? ';Domain=' + domain : '') +
-          ';Expires=Thu, 01 Jan 1970 00:00:01 GMT';
+          ((path) ? ';path=' + path : '') +
+          ((domain) ? ';domain=' + domain : '') +
+          ';expires=Thu, 01 Jan 1970 00:00:01 GMT';
       }
     }
   }
