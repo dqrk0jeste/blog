@@ -52,7 +52,7 @@
       <div v-if="store.loggedIn" class="welcome">
         <h1>welcome, <span>{{ store.user }}</span>!</h1>
         <h2>have something to write about?</h2>
-        <RouterLink to="/posts/create"><button>create</button></RouterLink>
+        <RouterLink to="/create"><button>create</button></RouterLink>
       </div>
       <Register v-else-if="store.wannaRegister"/>
       <Login v-else-if="store.wannaLogin"/>

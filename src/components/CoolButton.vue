@@ -16,9 +16,11 @@
     transition: all 0.1s ease-in-out;
     font-size: 2rem;
   }
+  
   button:hover {
     background-color: rgb(255, 255, 255);
   }
+
   button:active {
     box-shadow: none;
     transform: translate(4px, 4px);

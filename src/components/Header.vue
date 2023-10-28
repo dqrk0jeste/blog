@@ -24,7 +24,7 @@
       store.join.scrollIntoView()
       store.wannaLogin = true
     } else {
-      router.push('/posts/create')
+      router.push('/create')
     }
   }
 
@@ -34,6 +34,7 @@
     store.user = null
     store.wannaLogin = false
     store.wannaRegister = false
+    router.push('/')
   }
 </script>
 
@@ -43,14 +44,14 @@
       <Logo @click="goTo(store.home, route)" :color="store.headerColor"/>
       <ul>
         <li @click="goTo(store.home)">home</li>
-        <li v-if="route.path === '/'" @click="goTo(store.join)">join</li>
+        <li v-if="route.path === '/'" @click="goTo(store.join)">create</li>
         <li v-if="route.path === '/'" @click="goTo(store.blog)">blog</li>
         <li @click="goTo(store.about)">about</li>
       </ul>
     </nav>
     <div class="buttons">
       <u v-if="store.loggedIn" @click="logout">logout?</u>
-      <CoolButton v-if="route.path !== '/posts/create'" @click="handleClick" :text="store.loggedIn ? 'create' : 'login'"/>
+      <CoolButton v-if="route.path !== '/create'" @click="handleClick" :text="store.loggedIn ? 'create' : 'login'"/>
     </div>
   </header>
 </template>
